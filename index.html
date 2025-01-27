@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Peculiar Prose</title>
+  <style>
+      body {
+            font-family: Tempus Sans ITC, sans-serif;
+            background-color: #fdffe6;
+            text-align: center;
+      }
+      h1   {
+            color: #420084;
+      }
+      h2   {
+            color: #1ba189;
+      }
+      p    {font-size: 18px;
+            color: #490084;
+      }
+      button {
+            background-color: #07a387;
+            color: #fff;
+            border: non;
+            padding: 10px 20px;
+            font-size: 16px
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+      }
+      button:hover  {
+            background-color: #9B5665;
+      }
+   </style>
+</head>
+<body>
+  <h1>Melancholy Grammar</h1>
+  <h2>Peculiar Prose</h2>
+  <p>Your prompts will appear here:</p>
+  <button id="generateButton">Get My Prompts</button>
+
+  <script>
+    // Define an array of words
+    const words = [
+    "a stolen ring", "a party invitation", "a tube of lipstick", "creaking floorboards",
+    "a locked door", "spiders", "a broken clock", "Fog", "torn paper on the floor", 
+    "bat poop", "a hearse", "dusty attic", "wind", "a wolf", "a blizzard", "a mystery potion", 
+    "a secret diary", "rain", "an ancient letter", "tattered curtains", "a bad luck charm", 
+    "a flickering candle", "sleet", "a small, mean dog", "a fake illness", "cobwebs", "a recipe",
+    "snow", "a missing phone", "a campfire", "a scream", "a creepy portrait", "an impending storm", 
+    "an unbearable secret", "a family heirloom", "a lie", "a missing tooth", "a scarf", "broken eyeglasses", 
+    "a hidden room", "wild animals", "a moth", "a scary statue", "a lost item", "a creepy teddybear", 
+    "a horoscope", "a well-worn sweater", "a present that isn't good", "a locked chest", 
+    "something has been poisoned", "stolen jewelry", "lightning strikes", "flowers", "a hissing sound", 
+    "an old photograph"
+    ];
+
+    // Get a reference to the button element
+    const generateButton = document.getElementById("generateButton");
+
+    // Function to generate three random words
+    function generateRandomWords() {
+      const randomWords = [];
+      while (randomWords.length < 3) {
+        const randomIndex = Math.floor(Math.random() * words.length);
+        const randomWord = words[randomIndex];
+        if (!randomWords.includes(randomWord)) {
+          randomWords.push(randomWord);
+        }
+      }
+      document.querySelector("p").textContent = `Prompts: ${randomWords.join(", ")}`;
+    }
+
+    // Attach an event listener to the button
+    generateButton.addEventListener("click", generateRandomWords);
+</script>
+</body>
+</html>
